@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Sport Activities App</string>
+    <string name="me">Joko Priyono</string>
+    <string name="greeting">How are you today?</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="imt">IMT</string>
+    <string name="dummy_number">26.2</string>
+    <string name="height">Height</string>
+    <string name="dummy_height">177 cm</string>
+    <string name="weight">Weight</string>
+    <string name="dummy_weight">82 kg</string>
+    <string name="dummy_bpm">74</string>
+    <string name="dummy_steps">1007</string>
+    <string name="question">What sport it is today?</string>
+    <string name="run">Lari</string>
+    <string name="cycling">Cycling</string>
+    <string name="swim">Swim</string>
+    <string name="weightlifting">Weightlifting</string>
+    <string name="soccer">Soccer</string>
+    <string name="basket_ball">Basket Ball</string>
+    <string name="tennis">Tennis</string>
+    <string name="others">Others</string>
 </resources>

@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_profile"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                android:src="@drawable/thumbnail" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/txt_profile_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="20dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="start|bottom"
+            android:lines="1"
+            android:text="@string/me"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/txt_greeting"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/card_profile"
+            app:layout_constraintTop_toTopOf="@id/card_profile" />
+
+        <TextView
+            android:id="@+id/txt_greeting"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto"
+            android:gravity="start|top"
+            android:lines="1"
+            android:text="@string/greeting"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@id/card_profile"
+            app:layout_constraintEnd_toEndOf="@id/txt_profile_name"
+            app:layout_constraintStart_toStartOf="@id/txt_profile_name"
+            app:layout_constraintTop_toBottomOf="@id/txt_profile_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/img_gender"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/ic_gender"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_gender_title"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="10dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start|bottom"
+                        android:lines="1"
+                        android:text="@string/gender"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toTopOf="@id/txt_gender"
+                        app:layout_constraintEnd_toStartOf="@id/gauge_weight"
+                        app:layout_constraintStart_toEndOf="@id/img_gender"
+                        app:layout_constraintTop_toTopOf="@id/img_gender" />
+
+                    <TextView
+                        android:id="@+id/txt_gender"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="10dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start|top"
+                        android:lines="1"
+                        android:text="@string/male"
+                        android:textColor="#C1C1C1"
+                        app:layout_constraintBottom_toBottomOf="@id/img_gender"
+                        app:layout_constraintEnd_toEndOf="@id/txt_gender_title"
+                        app:layout_constraintStart_toEndOf="@id/img_gender"
+                        app:layout_constraintTop_toBottomOf="@id/txt_gender_title" />
+
+                    <com.rizzkijo.sportactivitiesapp.WeightGaugeMeter
+                        android:id="@+id/gauge_weight"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        app:gaugeDividerColor="@android:color/white"
+                        app:gaugeDividerSize="0.2"
+                        app:gaugeDividerStep="8"
+                        app:gaugeEndValue="40.0"
+                        app:gaugePointEndColor="#ffaa01"
+                        app:gaugePointStartColor="#ffaa01"
+                        app:gaugeStartAngle="-90"
+                        app:gaugeStartValue="0"
+                        app:gaugeStrokeCap="BUTT"
+                        app:gaugeStrokeColor="#F5F5F5"
+                        app:gaugeStrokeWidth="30dp"
+                        app:gaugeSweepAngle="360"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/img_weight"
+                        app:layout_constraintTop_toTopOf="@id/img_gender" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@id/gauge_weight"
+                        app:layout_constraintEnd_toEndOf="@id/gauge_weight"
+                        app:layout_constraintStart_toStartOf="@id/gauge_weight"
+                        app:layout_constraintTop_toTopOf="@id/gauge_weight">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:includeFontPadding="false"
+                            android:text="@string/imt"
+                            android:textAlignment="center"
+                            android:textColor="#888888"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/txt_value_gauge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="-8dp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="@string/dummy_number"
+                            android:textAlignment="center"
+                            android:textColor="#383838"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img_height"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/ic_height"
+                        app:layout_constraintStart_toStartOf="@id/img_gender"
+                        app:layout_constraintTop_toBottomOf="@id/img_gender" />
+
+                    <TextView
+                        android:id="@+id/txt_height_title"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="10dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start|bottom"
+                        android:lines="1"
+                        android:text="@string/height"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toTopOf="@id/txt_height"
+                        app:layout_constraintEnd_toStartOf="@id/gauge_weight"
+                        app:layout_constraintStart_toEndOf="@id/img_height"
+                        app:layout_constraintTop_toTopOf="@id/img_height" />
+
+                    <TextView
+                        android:id="@+id/txt_height"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="10dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start|top"
+                        android:lines="1"
+                        android:text="@string/dummy_height"
+                        android:textColor="#C1C1C1"
+                        app:layout_constraintBottom_toBottomOf="@id/img_height"
+                        app:layout_constraintEnd_toEndOf="@id/txt_height_title"
+                        app:layout_constraintStart_toEndOf="@id/img_height"
+                        app:layout_constraintTop_toBottomOf="@id/txt_height_title" />
+
+                    <ImageView
+                        android:id="@+id/img_weight"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/ic_weight"
+                        app:layout_constraintStart_toStartOf="@id/img_height"
+                        app:layout_constraintTop_toBottomOf="@id/img_height" />
+
+                    <TextView
+                        android:id="@+id/txt_weight_title"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="10dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start|bottom"
+                        android:lines="1"
+                        android:text="@string/weight"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toTopOf="@id/txt_weight"
+                        app:layout_constraintEnd_toStartOf="@id/gauge_weight"
+                        app:layout_constraintStart_toEndOf="@id/img_weight"
+                        app:layout_constraintTop_toTopOf="@id/img_weight" />
+
+                    <TextView
+                        android:id="@+id/txt_weight"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="10dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start|top"
+                        android:lines="1"
+                        android:text="@string/dummy_weight"
+                        android:textColor="#C1C1C1"
+                        app:layout_constraintBottom_toBottomOf="@id/img_weight"
+                        app:layout_constraintEnd_toEndOf="@id/txt_weight_title"
+                        app:layout_constraintStart_toEndOf="@id/img_weight"
+                        app:layout_constraintTop_toBottomOf="@id/txt_weight_title" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_home_history"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/img_weight">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#ebebeb"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:id="@+id/img_steps"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/ic_run"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/img_heart"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/ic_heart_bpm"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/txt_value_bpm"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/txt_value_steps"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_marginStart="10dp"
+                                android:fontFamily="@font/poppins_bold"
+                                android:includeFontPadding="false"
+                                android:text="@string/dummy_steps"
+                                android:gravity="center_vertical"
+                                android:textColor="#334966"
+                                android:textSize="28sp"
+                                app:layout_constraintEnd_toStartOf="@id/img_heart"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/img_steps"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/txt_value_bpm"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_bold"
+                                android:includeFontPadding="false"
+                                android:text="@string/dummy_bpm"
+                                android:textAlignment="center"
+                                android:textColor="#334966"
+                                android:textSize="28sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txt_question"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:gravity="start|bottom"
+                android:lines="1"
+                android:text="@string/question"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="@id/card_header"
+                app:layout_constraintStart_toStartOf="@id/card_header"
+                app:layout_constraintTop_toBottomOf="@id/card_header" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_sport_1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintStart_toStartOf="@id/txt_question"
+                app:layout_constraintTop_toBottomOf="@id/txt_question">
+
+                <ImageView
+                    android:id="@+id/img_sport_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_running" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_sport_2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintEnd_toStartOf="@id/card_sport_3"
+                app:layout_constraintStart_toEndOf="@id/card_sport_1"
+                app:layout_constraintTop_toTopOf="@id/card_sport_1">
+
+                <ImageView
+                    android:id="@+id/img_sport_2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_cycling" />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_sport_3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintEnd_toStartOf="@id/card_sport_4"
+                app:layout_constraintStart_toEndOf="@id/card_sport_2"
+                app:layout_constraintTop_toTopOf="@id/card_sport_1">
+
+                <ImageView
+                    android:id="@+id/img_sport_3"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_swimming" />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_sport_4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="@id/txt_question"
+                app:layout_constraintTop_toTopOf="@id/card_sport_1">
+
+                <ImageView
+                    android:id="@+id/img_sport_4"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_weightlift" />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_sport_5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintStart_toStartOf="@id/card_sport_1"
+                app:layout_constraintTop_toBottomOf="@id/txt_sport_1">
+
+                <ImageView
+                    android:id="@+id/img_sport_5"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_soccer" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_sport_6"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintEnd_toStartOf="@id/card_sport_7"
+                app:layout_constraintStart_toEndOf="@id/card_sport_5"
+                app:layout_constraintTop_toTopOf="@id/card_sport_5">
+
+                <ImageView
+                    android:id="@+id/img_sport_6"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_basketball" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_sport_7"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintEnd_toStartOf="@id/card_sport_8"
+                app:layout_constraintStart_toEndOf="@id/card_sport_6"
+                app:layout_constraintTop_toTopOf="@id/card_sport_6">
+
+                <ImageView
+                    android:id="@+id/img_sport_7"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_tennis" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_sport_8"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:cardCornerRadius="20dp"
+                android:backgroundTint="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="@id/card_sport_4"
+                app:layout_constraintTop_toTopOf="@id/card_sport_5">
+
+                <ImageView
+                    android:id="@+id/img_sport_8"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_others" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txt_sport_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:gravity="start|bottom"
+                android:lines="1"
+                android:text="@string/run"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/card_sport_1"
+                app:layout_constraintStart_toStartOf="@id/card_sport_1"
+                app:layout_constraintTop_toBottomOf="@id/card_sport_1" />
+
+            <TextView
+                android:id="@+id/txt_sport_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:gravity="start|bottom"
+                android:lines="1"
+                android:text="@string/cycling"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/card_sport_2"
+                app:layout_constraintStart_toStartOf="@id/card_sport_2"
+                app:layout_constraintTop_toBottomOf="@id/card_sport_2" />
+
+            <TextView
+                android:id="@+id/txt_sport_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:gravity="start|bottom"
+                android:lines="1"
+                android:text="@string/swim"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/card_sport_3"
+                app:layout_constraintStart_toStartOf="@id/card_sport_3"
+                app:layout_constraintTop_toBottomOf="@id/card_sport_3" />
+
+            <TextView
+                android:id="@+id/txt_sport_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:gravity="start|bottom"
+                android:lines="1"
+                android:text="@string/weightlifting"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/card_sport_4"
+                app:layout_constraintStart_toStartOf="@id/card_sport_4"
+                app:layout_constraintTop_toBottomOf="@id/card_sport_4" />
+
+            <TextView
+                android:id="@+id/txt_sport_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:gravity="start|bottom"
+                android:lines="1"
+                android:text="@string/soccer"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/card_sport_5"
+                app:layout_constraintStart_toStartOf="@id/card_sport_5"
+                app:layout_constraintTop_toBottomOf="@id/card_sport_5" />
+
+            <TextView
+                android:id="@+id/txt_sport_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:gravity="start|bottom"
+                android:lines="1"
+                android:text="@string/basket_ball"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/card_sport_6"
+                app:layout_constraintStart_toStartOf="@id/card_sport_6"
+                app:layout_constraintTop_toBottomOf="@id/card_sport_6" />
+
+            <TextView
+                android:id="@+id/txt_sport_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:gravity="start|bottom"
+                android:lines="1"
+                android:text="@string/tennis"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/card_sport_7"
+                app:layout_constraintStart_toStartOf="@id/card_sport_7"
+                app:layout_constraintTop_toBottomOf="@id/card_sport_7" />
+
+            <TextView
+                android:id="@+id/txt_sport_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:gravity="start|bottom"
+                android:lines="1"
+                android:text="@string/others"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/card_sport_8"
+                app:layout_constraintStart_toStartOf="@id/card_sport_8"
+                app:layout_constraintTop_toBottomOf="@id/card_sport_8" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
