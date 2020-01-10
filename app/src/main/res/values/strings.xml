@@ -21,4 +21,8 @@
     <string name="basket_ball">Basket Ball</string>
     <string name="tennis">Tennis</string>
     <string name="others">Others</string>
+    <string name="home">Home</string>
+    <string name="gym">Gym</string>
+    <string name="history">History</string>
+    <string name="profile">Profile</string>
 </resources>
