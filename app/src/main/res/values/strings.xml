@@ -25,4 +25,8 @@
     <string name="gym">Gym</string>
     <string name="history">History</string>
     <string name="profile">Profile</string>
+    <string name="dummy_smart_watch">Galaxy Watch Active</string>
+    <string name="add_new_device">+  Add a New Device</string>
+    <string name="title_statistic">Type of exercise the last 7 days</string>
+    <string name="title_line_statistic">Time of exercise the last 7 days</string>
 </resources>

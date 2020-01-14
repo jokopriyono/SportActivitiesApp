@@ -614,6 +614,13 @@
                 app:layout_constraintStart_toStartOf="@id/card_sport_8"
                 app:layout_constraintTop_toBottomOf="@id/card_sport_8" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                app:layout_constraintStart_toStartOf="@id/txt_sport_8"
+                app:layout_constraintEnd_toEndOf="@id/txt_sport_8"
+                app:layout_constraintTop_toBottomOf="@id/txt_sport_8" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
