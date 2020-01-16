@@ -16,5 +16,7 @@ This project builds pure using Kotlin language ❤ | Also get ultimate awesome i
 |Profile   |![Preview](git-assets/screen-2-1.png)|![Preview](git-assets/screen-2-2.png)|
 
 
+![](git-assets/sport-app.gif)
+
 ## Thank you for awesome MPAndroidChart
 [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) ❤❤❤
