@@ -1,4 +1,4 @@
-# Freelan!
+# Sport Activities App!
 
 This is a free XML template for Android, please also check awesome UI/UX from [Rizki](https://www.instagram.com/rizzkijo/) Instagram account.
 
